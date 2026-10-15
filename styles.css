@@ -68,21 +68,11 @@ body {
   align-items: center;
 }
 
-.topbar nav a[href^="#"] { display: none; } /* no celular: só logo + WhatsApp */
+.topbar nav a[href^="#"] { display: none; } /* no celular: topbar mostra só a marca */
 
 .topbar nav a[href^="#"]:hover { color: var(--texto); }
 
-.btn-nav {
-  border: 1px solid var(--verde-wa);
-  color: #0a8a45 !important;
-  border-radius: 999px;
-  padding: .32rem .9rem;
-  background: rgba(37, 211, 102, .08);
-}
-
-.btn-nav .ic-wa { color: var(--verde-wa); margin-right: .35em; }
-
-/* ---------- Hero (mobile: 1 coluna, flyer primeiro) ---------- */
+/* ---------- Hero (mobile: 1 coluna, imagem de serviço primeiro) ---------- */
 .hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -120,7 +110,7 @@ body {
 .lead { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
 .btn-wa {
-  display: flex;
+  display: none; /* no celular quem conversa é a barra fixa */
   align-items: center;
   justify-content: center;
   min-height: 56px;
@@ -139,7 +129,7 @@ body {
 
 .hero-note { color: var(--texto-suave); font-size: .82rem; margin-top: .7rem; }
 
-.hero-media { order: -1; margin: 0 auto; max-width: 320px; }
+.hero-media { order: -1; margin: 0 auto; max-width: 420px; }
 
 .hero-media img {
   width: 100%;
@@ -148,6 +138,8 @@ body {
   border: 1px solid rgba(13, 31, 78, .15);
   box-shadow: 0 14px 34px rgba(13, 31, 78, .18);
 }
+
+.hero-media figcaption { margin-top: .5rem; text-align: center; }
 
 /* ---------- Seções ---------- */
 .section { max-width: 1080px; margin: 0 auto; padding: 2.6rem 1.1rem; scroll-margin-top: 64px; }
