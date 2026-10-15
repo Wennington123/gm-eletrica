@@ -22,7 +22,6 @@ body {
     var(--fundo);
   color: var(--texto);
   line-height: 1.6;
-  padding-bottom: 72px; /* espaço da barra fixa no mobile */
 }
 
 /* ---------- Ícone WhatsApp ---------- */
@@ -72,6 +71,17 @@ body {
 
 .topbar nav a[href^="#"]:hover { color: var(--texto); }
 
+.btn-nav {
+  border: 1px solid var(--verde-wa);
+  color: #0a8a45 !important;
+  border-radius: 999px;
+  padding: .3rem .8rem;
+  background: rgba(37, 211, 102, .08);
+  font-weight: 700;
+}
+
+.btn-nav .ic-wa { color: var(--verde-wa); margin-right: .3em; }
+
 /* ---------- Hero (mobile: 1 coluna, imagem de serviço primeiro) ---------- */
 .hero {
   display: grid;
@@ -110,9 +120,10 @@ body {
 .lead { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
 .btn-wa {
-  display: none; /* no celular quem conversa é a barra fixa */
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: .35em;
   min-height: 56px;
   background: var(--amarelo);
   color: var(--texto);
@@ -269,28 +280,6 @@ details p { color: var(--texto-suave); margin-top: .5rem; }
 
 .cta-final p { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
-/* ---------- Barra fixa de WhatsApp (só mobile) ---------- */
-.wa-bar {
-  position: fixed;
-  left: .7rem;
-  right: .7rem;
-  bottom: .7rem;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 56px;
-  background: var(--verde-wa);
-  color: #fff;
-  font-weight: 800;
-  font-size: .95rem;
-  text-decoration: none;
-  border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(13, 31, 78, .35), 0 0 18px rgba(37, 211, 102, .5);
-}
-
-.wa-bar .ic-wa { color: #fff; margin-right: .5em; }
-
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid rgba(13, 31, 78, .12);
@@ -306,14 +295,8 @@ details p { color: var(--texto-suave); margin-top: .5rem; }
 
 /* ============ Desktop / tablet ============ */
 @media (min-width: 800px) {
-  body { padding-bottom: 0; }
-
   .topbar nav a[href^="#"] { display: inline-flex; }
   .topbar nav a { min-height: auto; font-size: .92rem; }
-
-  .wa-bar { display: none; }
-
-  .btn-wa { display: inline-flex; padding: .9rem 1.6rem; }
 
   .hero {
     grid-template-columns: 1.2fr .8fr;
