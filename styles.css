@@ -264,19 +264,8 @@ details[open] summary::after {
 
 details p { color: var(--texto-suave); margin-top: .5rem; }
 
-/* ---------- Dono + CTA final ---------- */
+/* ---------- CTA final ---------- */
 .cta-final { text-align: center; }
-
-.owner { margin: 0 0 1.4rem; }
-
-.owner img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--amarelo);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, .9), 0 10px 24px rgba(13, 31, 78, .2);
-}
 
 .cta-final p { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
