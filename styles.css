@@ -269,6 +269,10 @@ details p { color: var(--texto-suave); margin-top: .5rem; }
 
 .cta-final p { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
+.email-line { margin-top: 1rem; font-size: .95rem; }
+
+.email-line a { color: var(--destaque); font-weight: 600; }
+
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid rgba(13, 31, 78, .12);
