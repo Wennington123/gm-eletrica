@@ -1,11 +1,14 @@
-/* Mobile-first — a maioria dos clientes acessa pelo celular */
+/* Mobile-first — tema claro para máxima visibilidade (brand: azul-marinho + amarelo) */
 :root {
-  --navio: #071430;
-  --navy: #0d1f4e;
+  --fundo: #eef2fa;
+  --fundo-alt: #e2e8f5;
+  --superficie: #ffffff;
+  --texto: #0d1f4e;
+  --texto-suave: #4a5678;
   --amarelo: #ffcf1f;
-  --amarelo-hi: #ffe066;
-  --branco: #f4f7ff;
-  --cinza: #9aa6c4;
+  --amarelo-claro: #ffe066;
+  --destaque: #a36a00; /* âmbar escuro para acentos em fundo claro */
+  --verde-wa: #25d366;
   --tap: 48px; /* alvo mínimo de toque */
 }
 
@@ -14,12 +17,21 @@
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background:
-    radial-gradient(600px 380px at 90% -3%, rgba(64, 146, 255, .16), transparent 60%),
-    radial-gradient(500px 320px at 0% 12%, rgba(255, 207, 31, .07), transparent 60%),
-    var(--navio);
-  color: var(--branco);
+    radial-gradient(620px 380px at 92% -3%, rgba(64, 146, 255, .16), transparent 60%),
+    radial-gradient(520px 320px at -4% 14%, rgba(255, 207, 31, .18), transparent 60%),
+    var(--fundo);
+  color: var(--texto);
   line-height: 1.6;
   padding-bottom: 72px; /* espaço da barra fixa no mobile */
+}
+
+/* ---------- Ícone WhatsApp ---------- */
+.ic-wa {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+  flex: none;
+  margin-right: .5em;
 }
 
 /* ---------- Topbar (mobile: só logo + CTA curto) ---------- */
@@ -32,23 +44,23 @@ body {
   justify-content: space-between;
   gap: .6rem;
   padding: .65rem .9rem;
-  background: rgba(7, 20, 48, .94);
-  border-bottom: 1px solid rgba(255, 207, 31, .25);
+  background: rgba(255, 255, 255, .92);
+  border-bottom: 1px solid rgba(13, 31, 78, .12);
   backdrop-filter: blur(6px);
 }
 
 .brand {
-  color: var(--amarelo);
+  color: var(--texto);
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: .05em;
   white-space: nowrap;
 }
 
-.topbar nav { display: flex; gap: 1rem; align-items: center; }
+.topbar nav { display: flex; gap: .9rem; align-items: center; }
 
 .topbar nav a {
-  color: var(--cinza);
+  color: var(--texto-suave);
   text-decoration: none;
   font-size: .8rem;
   min-height: var(--tap);
@@ -58,14 +70,19 @@ body {
 
 .topbar nav a[href^="#"] { display: none; } /* no celular: só logo + WhatsApp */
 
+.topbar nav a[href^="#"]:hover { color: var(--texto); }
+
 .btn-nav {
-  border: 1px solid var(--amarelo);
-  color: var(--amarelo) !important;
+  border: 1px solid var(--verde-wa);
+  color: #0a8a45 !important;
   border-radius: 999px;
-  padding: .35rem .95rem;
+  padding: .32rem .9rem;
+  background: rgba(37, 211, 102, .08);
 }
 
-/* ---------- Hero (mobile: 1 coluna, flyer depois do texto) ---------- */
+.btn-nav .ic-wa { color: var(--verde-wa); margin-right: .35em; }
+
+/* ---------- Hero (mobile: 1 coluna, flyer primeiro) ---------- */
 .hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -80,7 +97,7 @@ body {
 
 .kicker {
   display: inline-block;
-  color: var(--navio);
+  color: var(--texto);
   background: var(--amarelo);
   font-weight: 700;
   letter-spacing: .08em;
@@ -98,9 +115,9 @@ body {
   letter-spacing: .02em;
 }
 
-.hero h1 em { font-style: normal; color: var(--amarelo); }
+.hero h1 em { font-style: normal; color: var(--destaque); }
 
-.lead { color: var(--cinza); margin-bottom: 1.3rem; }
+.lead { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
 .btn-wa {
   display: flex;
@@ -108,19 +125,19 @@ body {
   justify-content: center;
   min-height: 56px;
   background: var(--amarelo);
-  color: var(--navio);
+  color: var(--texto);
   font-weight: 800;
   font-size: 1.02rem;
   text-decoration: none;
   text-align: center;
   border-radius: 999px;
-  box-shadow: 0 0 24px rgba(255, 207, 31, .35);
+  box-shadow: 0 6px 18px rgba(13, 31, 78, .18);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
-.btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 34px rgba(255, 207, 31, .55); }
+.btn-wa:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(13, 31, 78, .28); }
 
-.hero-note { color: var(--cinza); font-size: .82rem; margin-top: .7rem; }
+.hero-note { color: var(--texto-suave); font-size: .82rem; margin-top: .7rem; }
 
 .hero-media { order: -1; margin: 0 auto; max-width: 320px; }
 
@@ -128,17 +145,17 @@ body {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  border: 1px solid rgba(255, 207, 31, .35);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, .55), 0 0 50px rgba(64, 146, 255, .18);
+  border: 1px solid rgba(13, 31, 78, .15);
+  box-shadow: 0 14px 34px rgba(13, 31, 78, .18);
 }
 
 /* ---------- Seções ---------- */
 .section { max-width: 1080px; margin: 0 auto; padding: 2.6rem 1.1rem; scroll-margin-top: 64px; }
 
 .section.alt {
-  background: linear-gradient(rgba(64, 146, 255, .05), rgba(64, 146, 255, .05));
-  border-top: 1px solid rgba(255, 255, 255, .06);
-  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  background: var(--fundo-alt);
+  border-top: 1px solid rgba(13, 31, 78, .08);
+  border-bottom: 1px solid rgba(13, 31, 78, .08);
   max-width: none;
 }
 
@@ -155,18 +172,19 @@ body {
 .grid { display: grid; grid-template-columns: 1fr; gap: .8rem; }
 
 .card {
-  background: var(--navy);
-  border: 1px solid rgba(255, 207, 31, .18);
+  background: var(--superficie);
+  border: 1px solid rgba(13, 31, 78, .1);
   border-radius: 12px;
   padding: 1.1rem 1.2rem;
-  transition: border-color .15s ease;
+  box-shadow: 0 2px 8px rgba(13, 31, 78, .06);
+  transition: border-color .15s ease, box-shadow .15s ease;
 }
 
-.card:hover { border-color: var(--amarelo); }
+.card:hover { border-color: var(--amarelo); box-shadow: 0 6px 16px rgba(13, 31, 78, .12); }
 
-.card h3 { color: var(--amarelo-hi); font-size: 1rem; margin-bottom: .35rem; }
+.card h3 { color: var(--texto); font-size: 1rem; margin-bottom: .35rem; }
 
-.card p { color: var(--cinza); font-size: .92rem; }
+.card p { color: var(--texto-suave); font-size: .92rem; }
 
 /* ---------- Como funciona ---------- */
 .steps {
@@ -177,17 +195,18 @@ body {
 }
 
 .steps li {
-  background: var(--navy);
+  background: var(--superficie);
   border-radius: 12px;
   padding: 1.15rem 1.25rem;
   border-left: 4px solid var(--amarelo);
+  box-shadow: 0 2px 8px rgba(13, 31, 78, .06);
 }
 
-.steps h3 { margin-bottom: .35rem; font-size: .98rem; }
+.steps h3 { margin-bottom: .35rem; font-size: .98rem; color: var(--texto); }
 
-.steps p { color: var(--cinza); font-size: .92rem; }
+.steps p { color: var(--texto-suave); font-size: .92rem; }
 
-.steps a { color: var(--amarelo); }
+.steps a { color: var(--destaque); font-weight: 600; }
 
 /* ---------- Valores ---------- */
 .tagline {
@@ -198,22 +217,23 @@ body {
   text-transform: uppercase;
 }
 
-.values-line { color: var(--cinza); margin-top: .8rem; }
+.values-line { color: var(--texto-suave); margin-top: .8rem; }
 
-#regiao strong { color: var(--amarelo); }
+#regiao strong { color: var(--destaque); }
 
 /* ---------- FAQ ---------- */
 details {
-  background: var(--navy);
-  border: 1px solid rgba(255, 255, 255, .08);
+  background: var(--superficie);
+  border: 1px solid rgba(13, 31, 78, .1);
   border-radius: 10px;
   padding: .9rem 1.1rem;
   margin-bottom: .7rem;
+  box-shadow: 0 2px 8px rgba(13, 31, 78, .05);
 }
 
 summary { cursor: pointer; font-weight: 700; min-height: var(--tap); display: flex; align-items: center; }
 
-details p { color: var(--cinza); margin-top: .5rem; }
+details p { color: var(--texto-suave); margin-top: .5rem; }
 
 /* ---------- Dono + CTA final ---------- */
 .cta-final { text-align: center; }
@@ -226,10 +246,10 @@ details p { color: var(--cinza); margin-top: .5rem; }
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--amarelo);
-  box-shadow: 0 0 26px rgba(255, 207, 31, .35);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .9), 0 10px 24px rgba(13, 31, 78, .2);
 }
 
-.cta-final p { color: var(--cinza); margin-bottom: 1.3rem; }
+.cta-final p { color: var(--texto-suave); margin-bottom: 1.3rem; }
 
 /* ---------- Barra fixa de WhatsApp (só mobile) ---------- */
 .wa-bar {
@@ -242,27 +262,29 @@ details p { color: var(--cinza); margin-top: .5rem; }
   align-items: center;
   justify-content: center;
   min-height: 56px;
-  background: #25d366;
-  color: var(--navio);
+  background: var(--verde-wa);
+  color: #fff;
   font-weight: 800;
   font-size: .95rem;
   text-decoration: none;
   border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .5), 0 0 22px rgba(37, 211, 102, .4);
+  box-shadow: 0 10px 30px rgba(13, 31, 78, .35), 0 0 18px rgba(37, 211, 102, .5);
 }
+
+.wa-bar .ic-wa { color: #fff; margin-right: .5em; }
 
 /* ---------- Footer ---------- */
 .footer {
-  border-top: 1px solid rgba(255, 207, 31, .2);
+  border-top: 1px solid rgba(13, 31, 78, .12);
   padding: 1.8rem 1.1rem 2.2rem;
   text-align: center;
-  color: var(--cinza);
+  color: var(--texto-suave);
   font-size: .88rem;
 }
 
-.footer strong { color: var(--amarelo); }
+.footer strong { color: var(--texto); }
 
-.footer a { color: var(--amarelo); }
+.footer a { color: var(--destaque); }
 
 /* ============ Desktop / tablet ============ */
 @media (min-width: 800px) {
@@ -286,7 +308,7 @@ details p { color: var(--cinza); margin-top: .5rem; }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, transparent 30%, rgba(255, 207, 31, .16) 43%, rgba(64, 146, 255, .28) 57%, transparent 70%);
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 207, 31, .14) 43%, rgba(64, 146, 255, .12) 57%, transparent 70%);
     pointer-events: none;
   }
 
